@@ -1,16 +1,3 @@
-# there is a correct, five-letter word (set on backend)
-# allows user to input a guess as a string
-# there is a place to put that guess (array/variable)
-# compares guess to the correct word
-
-# gives feedback
-  # checks each individual letter
-#   if guess is fully correct the user wins
-#   if a letter is fully correct it turns green
-#   if a letter is in the word, but in the wrong place, it turns yellow
-
-# user can guess again if they have not won
-
 answer = "GLASS"
 answer = answer
 guess = ""
@@ -19,16 +6,18 @@ guess = ""
   puts "Please enter a guess:"
   guess = gets.chomp.upcase
   index = 0
+  squares = ""
   while index < answer.length
     if answer[index] == guess[index]
-      puts "#{guess[index]}: Correct"
+      squares[index] = "G"
     elsif answer.include?(guess[index])
-      puts "#{guess[index]}: Placement"
+      squares[index] = "Y"
     else
-      puts guess[index]
+      squares[index] = "-"
     end
     index += 1
   end 
+  puts squares
   if guess == answer
     puts "You win!"
     break
