@@ -11,23 +11,23 @@
 
 # user can guess again if they have not won
 
-word = "PASTA"
-word = word.split(//)
-guess = []
+answer = "PASTA"
+answer = answer
+guess = ""
 
 6.times do
   puts "Please enter a guess:"
-  guess = gets.chomp.upcase.split(//)
-  if guess == word
+  guess = gets.chomp.upcase
+  if guess == answer
     puts "You win!"
     break
   else
     index = 0
-    while index < word.length
-      if word[index] == guess[index]
-        puts "#{guess[index]}: Green"
-      elsif word.include?(guess[index])
-        puts "#{guess[index]}: Yellow"
+    while index < answer.length
+      if answer[index] == guess[index]
+        puts "#{guess[index]}: Correct"
+      elsif answer.include?(guess[index])
+        puts "#{guess[index]}: Placement"
       else
         puts guess[index]
       end
@@ -36,7 +36,7 @@ guess = []
   end 
 end
 
-if guess != word
+if guess != answer
   puts "You lose."
-  puts "The word was #{word.join}"
+  puts "The word was #{answer}"
 end
