@@ -39,9 +39,9 @@ input = gets.chomp
 puts ""
 if input.upcase == "Y"
   if guess == answer
-    puts "Wordle #{turn_count} / 6"
+    puts "Wordle #{turn_count}/6"
   else
-    puts "Wordle #{turn_count} / *"
+    puts "Wordle #{turn_count}/*"
   end
   puts shareable
 end
