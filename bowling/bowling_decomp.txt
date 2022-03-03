@@ -1,0 +1,20 @@
+Spend the next 5 minutes decomposing the following problem (just decompose the problem, do not write any code to actually solve the problem for now):
+Write code to keep track of the score of a game of bowling. It should have two methods: roll which takes in the number of pins knocked down, and score which is called at the end and returns the total game score.
+
+Array to track the score of a game
+Method "roll" that starts by printing the current score
+Have the method take in the number of pins knocked down and print that
+
+Add the number of pins knocked down to the score array (as a start)
+
+Add calculations to figure out the score to add (multiple steps), based on number of pins
+Repeat ten (20 times for full game) times for each frame of bowling (loop)
+    p score to test
+    Count which frame you're on
+  Each frame has 1-2 rolls (loop or if?)
+    Count how many pins are still standing (if any)
+    If any, roll again.
+
+Method "score" that prints the score
+  takes score array, adds together and prints
+
