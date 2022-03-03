@@ -11,29 +11,28 @@
 
 # user can guess again if they have not won
 
-answer = "PASTA"
+answer = "GLASS"
 answer = answer
 guess = ""
 
 6.times do
   puts "Please enter a guess:"
   guess = gets.chomp.upcase
+  index = 0
+  while index < answer.length
+    if answer[index] == guess[index]
+      puts "#{guess[index]}: Correct"
+    elsif answer.include?(guess[index])
+      puts "#{guess[index]}: Placement"
+    else
+      puts guess[index]
+    end
+    index += 1
+  end 
   if guess == answer
     puts "You win!"
     break
-  else
-    index = 0
-    while index < answer.length
-      if answer[index] == guess[index]
-        puts "#{guess[index]}: Correct"
-      elsif answer.include?(guess[index])
-        puts "#{guess[index]}: Placement"
-      else
-        puts guess[index]
-      end
-      index += 1
-    end
-  end 
+  end
 end
 
 if guess != answer
