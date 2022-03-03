@@ -1,5 +1,4 @@
 answer = "GLASS"
-answer = answer
 guess = ""
 
 6.times do
