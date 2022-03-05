@@ -1,12 +1,16 @@
+require 'faker'
+
 class Employee
+  attr_accessor :bio
   attr_reader :first_name, :last_name, :active
   attr_writer :active
 
   def initialize(input_options)
     @first_name = input_options[:first_name]
     @last_name = input_options[:last_name]
-    @salary = input_options[:salary]
-    @active = input_options[:active]
+    @salary = input_options[:salary] || 1
+    @active = input_options[:active] || false
+    @bio = input_options[:bio]
   end
 
   def print_info
@@ -58,7 +62,24 @@ end
 manager = Manager.new(first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true, employees: [employee1, employee2])
 manager.print_info
 
-# manager.send_report
+employees = []
+100.times do
+  employee = Employee.new(
+    first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    salary: Faker::Number.between(from: 25_000, to: 250_000))
+  employee.bio = "#{employee.first_name} #{employee.last_name} is a #{Faker::Job.title} with their #{Faker::Job.education_level} in #{Faker::Job.field}. #{employee.last_name} is a proud #{Faker::Relationship.familial.downcase} who enjoys #{Faker::Hobby.activity.downcase} and #{Faker::Hobby.activity.downcase}."
+  employees << employee
+end
+
+# employees.each do |employee|
+#   puts employee.bio
+# end
+
+# p "#{first_name} is a #{Faker::Job.title} and graduated with a #{Faker::Job.education_level} degree in #{Faker::Job.field}. They are a proud #{Faker::Relationship.familial.downcase} and enjoy #{Faker::Hobby.activity.downcase} and #{Faker::Hobby.activity.downcase}."
+
+
+
 
 # puts "Before raises:"
 # employee1.print_info
